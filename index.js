@@ -1,9 +1,16 @@
 const express = require('express');
 const connectDB = require('./utils/connectDB');
+const bodyParser = require('body-parser');
 const dotenv = require('dotenv').config();
+
+const userRoutes = require('./routes/user')
+
 const app = express();
 
 connectDB()
+app.use(bodyParser.json())
+
+app.use('/api/v1', userRoutes)
 
 app.get('/', (req, res) => {
     res.json({
