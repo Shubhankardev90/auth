@@ -1,7 +1,9 @@
 const express = require('express');
+const connectDB = require('./utils/connectDB');
 const dotenv = require('dotenv').config();
 const app = express();
 
+connectDB()
 
 app.get('/', (req, res) => {
     res.json({
