@@ -46,6 +46,9 @@ userSchema.pre('save', async function (next) {
     }
 });
 
+userSchema.virtual('id').get(function () {
+    return this._id.toHexString();
+});
 // Create the User model
 const User = mongoose.model('User', userSchema);
 

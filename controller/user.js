@@ -30,7 +30,7 @@ const register = async (req, res) => {
 
     await newUser.save();
 
-    const token = await generateToken(newUser.user_id);
+    const token = await generateToken(newUser.id);
 
     return res.json({
         'status': "OK",
@@ -42,6 +42,12 @@ const register = async (req, res) => {
 };
 
 
+const profile = async (req, res) => {
+    const user = req.user;
+    res.json(user);
+}
+
 module.exports = {
-    register
+    register,
+    profile
 }

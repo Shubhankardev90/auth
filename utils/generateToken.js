@@ -5,7 +5,6 @@ const generateToken = (user_id) => {
     const payload = {
         user_id: user_id
     };
-
     const options = {
         expiresIn: '7d'
     };
